@@ -30,9 +30,10 @@ NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'w0rp/ale'
 NeoBundle 'airblade/vim-gitgutter'
-let g:gitgutter_highlight_lines = 1
+"let g:gitgutter_highlight_lines = 1
 set updatetime=250
 set signcolumn=yes
 NeoBundle 'simeji/winresizer'
@@ -44,7 +45,7 @@ NeoBundle 'ryanoasis/vim-devicons'
 let g:airline_theme = 'wombat'
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 let g:airline_section_c = '%t'
@@ -54,6 +55,18 @@ let g:airline#extensions#ale#error_symbol = ' '
 let g:airline#extensions#ale#warning_symbol = ' '
 let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
+
+
+
+
+
+" ----------------------------------------------
+" JavaScript
+" ----------------------------------------------
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'maxmellon/vim-jsx-pretty'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'othree/es.next.syntax.vim'
 
 " ----------------------------------------------
 " TypeScript
@@ -77,6 +90,8 @@ NeoBundleCheck
 
 "End NeoBundle Scripts-------------------------
 
+
+set encoding=utf-8
 
 set nobackup
 set noswapfile
