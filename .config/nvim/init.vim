@@ -7,12 +7,12 @@ endif
 set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
+if dein#load_state($HOME . '/.cache/dein')
+  call dein#begin($HOME . '/.cache/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add($HOME . '/.cache/dein/repos/github.com/Shougo/dein.vim')
 
   let g:rc_dir    = expand("~/.config/nvim/")
   let s:toml      = g:rc_dir . '/dein.toml'
