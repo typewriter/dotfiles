@@ -39,6 +39,8 @@ endif
 
 set clipboard=unnamed
 
+set splitright
+
 set nobackup
 set noswapfile
 
