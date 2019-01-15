@@ -46,6 +46,7 @@ set noswapfile
 
 set cursorline
 set cursorcolumn
+highlight CursorColumn ctermbg=237 guibg=Grey90
 set number
 
 set smartindent
@@ -61,4 +62,7 @@ set laststatus=2
 
 set background=dark
 set notitle
+
+highlight Pmenu ctermbg=17
+highlight PmenuSel ctermbg=110
 
