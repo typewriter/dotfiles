@@ -158,4 +158,5 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set laststatus=2
 
 set background=dark
+set notitle
 
