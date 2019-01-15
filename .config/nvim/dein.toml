@@ -109,4 +109,6 @@ let g:airline#extensions#default#section_truncate_width = {}
 let g:airline#extensions#whitespace#enabled = 1
 '''
 
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
 

@@ -57,6 +57,7 @@ set sw=2
 set incsearch
 set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+set inccommand=split
 
 set laststatus=2
 
