@@ -4,6 +4,12 @@ hook_add = '''
 let g:deoplete#enable_at_startup = 1
 '''
 
+#[[plugins]]
+#repo = 'pangloss/vim-javascript'
+
+#[[plugins]]
+#repo = 'mxw/vim-jsx'
+
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -76,13 +82,13 @@ hook_add = '''
 let g:winresizer_vert_resize = 1
 let g:winresizer_horiz_resize = 1
 '''
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_set_highlights = 0
-let g:ale_sign_error = ' '
-let g:ale_sign_warning = ' '
-'''
+# [[plugins]]
+# repo = 'w0rp/ale'
+# hook_add = '''
+# let g:ale_set_highlights = 0
+# let g:ale_sign_error = ' '
+# let g:ale_sign_warning = ' '
+# '''
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
