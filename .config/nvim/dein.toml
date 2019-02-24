@@ -7,6 +7,9 @@ let g:deoplete#auto_complete_start_length = 1
 
 '''
 
+[[plugins]]
+repo = 'fatih/vim-go'
+
 #[[plugins]]
 #repo = 'pangloss/vim-javascript'
 
@@ -23,6 +26,15 @@ nmap <silent> <C-n> :NERDTreeToggle<CR>
 repo = 'tpope/vim-endwise'
 
 [[plugins]]
+repo = 'posva/vim-vue'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo = 'tpope/vim-rails'
 
 [[plugins]]
@@ -37,6 +49,7 @@ let g:LanguageClient_serverCommands = {
       \ 'python': ['pyls'],
       \ 'javascript': ['javascript-typescript-stdio'],
       \ 'javascript-jsx': ['javascript-typescript-stdio'],
+      \ 'vue': ['vls'],
       \ }
 let g:LanguageClient_loadSettings = 1
 
