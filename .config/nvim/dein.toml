@@ -17,6 +17,9 @@ repo = 'fatih/vim-go'
 #repo = 'mxw/vim-jsx'
 
 [[plugins]]
+repo = 'typewriter/zenrei.vim'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 nmap <silent> <C-n> :NERDTreeToggle<CR>
