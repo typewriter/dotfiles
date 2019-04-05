@@ -51,6 +51,14 @@ repo = 'tpope/vim-rails'
 [[plugins]]
 repo = 'neoclide/coc.nvim'
 build = 'coc#util#install()'
+hook_add = '''
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
+autocmd CursorHold * silent call CocActionAsync('highlight')
+'''
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
