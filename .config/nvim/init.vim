@@ -71,3 +71,10 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+function! g:GetVisualWord() abort
+  let word = getline("'<")[getpos("'<")[2] - 1:getpos("'>")[2] - 1]
+  return word
+endfunction
+
+
