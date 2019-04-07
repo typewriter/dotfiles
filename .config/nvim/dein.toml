@@ -75,8 +75,8 @@ call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
 hook_add = '''
 nmap <silent> <C-f> :<C-u>Denite -auto-preview -split=vertical file/rec<CR>
 nmap <silent> <C-g> :<C-u>Denite -auto-preview -split=vertical grep<CR>
-xnoremap <silent> <C-f> :Denite -auto-preview -split=vertical file/rec:::`GetVisualWord()`<CR>
-xnoremap <silent> <C-g> :Denite -auto-preview -split=vertical grep:::`GetVisualWord()`<CR>
+xnoremap <silent> <C-f> :DeniteCursorWord -auto-preview -split=vertical file/rec<CR>
+xnoremap <silent> <C-g> :DeniteCursorWord -auto-preview -split=vertical grep<CR>
 '''
 
 [[plugins]]
