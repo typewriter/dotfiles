@@ -21,6 +21,7 @@ repo = 'typewriter/zenrei.vim'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
+nmap <F7> :NERDTreeToggle<CR>
 nmap <silent> <C-t> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
