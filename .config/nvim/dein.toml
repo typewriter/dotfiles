@@ -145,3 +145,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 [[plugins]]
 repo = 'tomtom/tcomment_vim'
 
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+nmap <F8> :TagbarToggle<CR>
+autocmd VimEnter * nested :call tagbar#autoopen(1)
+'''
+
