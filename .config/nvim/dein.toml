@@ -1,87 +1,20 @@
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# hook_add = '''
-# let g:deoplete#enable_at_startup = 1
-# let g:deoplete#auto_complete_delay = 150
-# let g:deoplete#auto_complete_start_length = 1
-# '''
-
+# General
 [[plugins]]
-repo = 'fatih/vim-go'
-
-#[[plugins]]
-#repo = 'pangloss/vim-javascript'
-
-#[[plugins]]
-#repo = 'mxw/vim-jsx'
-
-[[plugins]]
-repo = 'typewriter/zenrei.vim'
+repo = 'simeji/winresizer'
+hook_add = '''
+let g:winresizer_vert_resize = 1
+let g:winresizer_horiz_resize = 1
+'''
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
 nmap <F7> :NERDTreeToggle<CR>
 nmap <silent> <C-t> :NERDTreeToggle<CR>
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 '''
-
-[[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
-repo = 'posva/vim-vue'
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet.vim'
-# 
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-#
-[[plugins]]
-repo = 'terryma/vim-expand-region'
-hook_add = '''
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-'''
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-build = 'coc#util#install()'
-hook_add = '''
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
-autocmd CursorHold * silent call CocActionAsync('highlight')
-'''
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-on_cmd = 'Denite'
-if = 'has("nvim")'
-hook_source = '''
-call denite#custom#map('insert', '<esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('normal', '<esc>', '<denite:quit>', 'noremap')
-"call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-"call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-"call denite#custom#map('normal', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-"call denite#custom#map('normal', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-'''
-hook_add = '''
-nmap <silent> <C-f> :<C-u>Denite -auto-preview -split=vertical file/rec<CR>
-nmap <silent> <C-g> :<C-u>Denite -auto-preview -split=vertical grep<CR>
-xnoremap <silent> <C-f> :DeniteCursorWord -auto-preview -split=vertical file/rec<CR>
-xnoremap <silent> <C-g> :DeniteCursorWord -auto-preview -split=vertical grep<CR>
-'''
-
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -96,26 +29,15 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=18
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
-set updatetime=250
+set updatetime=2000
 set signcolumn=yes
 '''
 
 [[plugins]]
-repo = 'simeji/winresizer'
+repo = 'majutsushi/tagbar'
 hook_add = '''
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
-'''
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_set_highlights = 0
-let g:ale_sign_error = ' '
-let g:ale_sign_warning = ' '
-let g:ale_linters = {
-  \ 'markdown': ['textlint']
-  \ }
-let g:ale_completion_enabled = 0
+nmap <F8> :TagbarToggle<CR>
+"autocmd VimEnter * nested :call tagbar#autoopen(1)
 '''
 
 [[plugins]]
@@ -148,12 +70,39 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 '''
 
 [[plugins]]
-repo = 'tomtom/tcomment_vim'
-
-[[plugins]]
-repo = 'majutsushi/tagbar'
+repo = 'w0rp/ale'
 hook_add = '''
-nmap <F8> :TagbarToggle<CR>
-"autocmd VimEnter * nested :call tagbar#autoopen(1)
+let g:ale_set_highlights = 0
+let g:ale_sign_error = ' '
+let g:ale_sign_warning = ' '
+let g:ale_linters = {
+  \ 'markdown': ['textlint']
+  \ }
+let g:ale_completion_enabled = 0
 '''
 
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+build = 'coc#util#install()'
+hook_add = '''
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
+autocmd CursorHold * silent call CocActionAsync('highlight')
+'''
+
+# Format
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+# Language, Framework
+[[plugins]]
+repo = 'tpope/vim-rails'

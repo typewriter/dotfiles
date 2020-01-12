@@ -14,7 +14,7 @@ if dein#load_state($HOME . '/.cache/dein')
   " Required:
   call dein#add($HOME . '/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  let g:rc_dir    = expand("~/.config/nvim/")
+  let g:rc_dir    = $HOME . '/.config/nvim'
   let s:toml      = g:rc_dir . '/dein.toml'
   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
 
@@ -31,9 +31,9 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-if dein#check_install()
-  call dein#install()
-endif
+"if dein#check_install()
+"  call dein#install()
+"endif
 
 "End dein Scripts-------------------------
 
@@ -44,9 +44,6 @@ set splitright
 set nobackup
 set noswapfile
 
-set cursorline
-set cursorcolumn
-highlight CursorColumn ctermbg=237 guibg=Grey90
 set number
 
 set smartindent
@@ -72,5 +69,5 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-
+au BufRead,BufNewFile *.cr setfiletype ruby
 
