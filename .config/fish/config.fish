@@ -35,3 +35,7 @@ set -g theme_display_cmd_duration no
 set -g theme_project_dir_length 80
 set -g theme_color_scheme dracula
 
+set EDITOR nvim
+direnv hook fish | source
+
+
