@@ -91,6 +91,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
 autocmd CursorHold * silent call CocActionAsync('highlight')
+inoremap <silent><expr> <c-space> coc#refresh()
 '''
 
 # Format
