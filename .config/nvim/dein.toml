@@ -107,3 +107,8 @@ repo = 'tomtom/tcomment_vim'
 # Language, Framework
 [[plugins]]
 repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+hook_add = '''
+'''
