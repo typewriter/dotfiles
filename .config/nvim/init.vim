@@ -1,73 +1,71 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
+" Install vim-jetpack
+let s:jetpackfile = stdpath('data') .. '/site/pack/jetpack/opt/vim-jetpack/plugin/jetpack.vim'
+let s:jetpackurl = "https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim"
+if !filereadable(s:jetpackfile)
+  call system(printf('curl -fsSLo %s --create-dirs %s', s:jetpackfile, s:jetpackurl))
 endif
 
-" Required:
-set runtimepath+=$HOME/.cache/dein/repos/github.com/Shougo/dein.vim
+" Install plugins
+packadd vim-jetpack
+call jetpack#begin()
+Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
+Jetpack 'simeji/winresizer'
+Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
+Jetpack 'junegunn/fzf.vim'
+Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Jetpack 'nathanaelkane/vim-indent-guides'
+Jetpack 'airblade/vim-gitgutter'
+Jetpack 'tpope/vim-endwise'
+Jetpack 'bronson/vim-trailing-whitespace'
+Jetpack 'neoclide/coc.nvim', { 'branch': 'release','do': 'yarn install --frozen-lockfile' }
+Jetpack 'ryanoasis/vim-devicons'
+Jetpack 'vim-airline/vim-airline-themes'
+Jetpack 'vim-airline/vim-airline'
+call jetpack#end()
 
-" Required:
-if dein#load_state($HOME . '/.cache/dein')
-  call dein#begin($HOME . '/.cache/dein')
+" Config plugins
+let g:winresizer_vert_resize = 1
+let g:winresizer_horiz_resize = 1
 
-  " Let dein manage dein
-  " Required:
-  call dein#add($HOME . '/.cache/dein/repos/github.com/Shougo/dein.vim')
+nmap <Leader>f [fzf-p]
+xmap <Leader>f [fzf-p]
+nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResourcesRpc project_mru git<CR>
+nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
 
-  let g:rc_dir    = $HOME . '/.config/nvim'
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd   ctermbg=22
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=18
 
-  call dein#load_toml(s:toml, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+set updatetime=500
+set signcolumn=yes
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
+autocmd CursorHold * silent! call CocAction('doHover')
+inoremap <silent><expr> <c-space> coc#refresh()
 
-" Required:
-filetype plugin indent on
-syntax enable
+let g:airline_theme = 'wombat'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#wordcount#enabled = 0
+let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+" Config
+set number
 
-"End dein Scripts-------------------------
-
-set clipboard=unnamed
-
-set splitright
-
-set nobackup
 set noswapfile
 
-set number
+set splitright
 
 set smartindent
 set expandtab
 set ts=2
 set sw=2
 
-set incsearch
-set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set inccommand=split
-
-set laststatus=2
-
-set background=dark
-set notitle
-
-highlight Pmenu ctermbg=17
-highlight PmenuSel ctermbg=110
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-au BufRead,BufNewFile *.cr setfiletype ruby
-
