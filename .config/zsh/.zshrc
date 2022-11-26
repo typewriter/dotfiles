@@ -72,10 +72,11 @@ zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # plugins
+zinit ice wait'0'
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit load zdharma-continuum/history-search-multi-word
-zinit load agkozak/zsh-z
+zinit light zdharma-continuum/history-search-multi-word
+zinit light agkozak/zsh-z
 
 # plugin config
 source "${ZDOTDIR}/.p10k.zsh"
@@ -83,3 +84,14 @@ source "${ZDOTDIR}/.p10k.zsh"
 # plugin keybinds
 bindkey "^R" history-search-multi-word
 
+# .*env
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - zsh)"
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(~/.nodenv/bin/nodenv init - zsh)"
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(~/.goenv/bin/goenv init - zsh)"
+
+# aliases
+alias ls='ls --color=auto --classify'
+alias vi='nvim'
