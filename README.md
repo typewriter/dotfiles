@@ -1,6 +1,19 @@
 ## dot\_files
 
-### NeoVim
+- NeoVim
+- tmux
+- zsh
 
-![NeoVim screenshot](https://typewriter.github.io/dot_files/img/neovim_screenshot.png)
+### Installation
+
+```sh
+$ ./setup.sh
+```
+
+```sh
+$ nvim
+:CocInstall coc-go
+:CocInstall coc-tsserver
+:CocInstall coc-solargraph
+```
 
