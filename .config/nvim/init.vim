@@ -21,6 +21,7 @@ Jetpack 'neoclide/coc.nvim', { 'branch': 'release','do': 'yarn install --frozen-
 Jetpack 'ryanoasis/vim-devicons'
 Jetpack 'vim-airline/vim-airline-themes'
 Jetpack 'vim-airline/vim-airline'
+" Jetpack 'preservim/nerdtree'
 call jetpack#end()
 
 " Config plugins
@@ -54,6 +55,11 @@ let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
+
+" nnoremap <C-t> :NERDTreeToggle<CR>
+" autocmd BufRead *.rb,*.go NERDTree
+" autocmd VimEnter * wincmd p
+" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Config
 set number
