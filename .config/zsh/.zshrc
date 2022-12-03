@@ -19,28 +19,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-# # Use modern completion system
-# autoload -Uz compinit
-# compinit
-
-# zstyle ':completion:*' auto-description 'specify: %d'
-# zstyle ':completion:*' completer _expand _complete _correct _approximate
-# zstyle ':completion:*' format 'Completing %d'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' menu select=2
-# eval "$(dircolors -b)"
-# zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-# zstyle ':completion:*' list-colors ''
-# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-# zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-# zstyle ':completion:*' menu select=long
-# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-# zstyle ':completion:*' use-compctl false
-# zstyle ':completion:*' verbose true
-# 
-# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -72,7 +50,6 @@ zinit light romkatv/powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # plugins
-zinit ice wait'0'
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zdharma-continuum/history-search-multi-word
@@ -86,11 +63,25 @@ bindkey "^R" history-search-multi-word
 
 # .*env
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(~/.rbenv/bin/rbenv init - zsh)"
 export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(~/.nodenv/bin/nodenv init - zsh)"
 export PATH="$HOME/.goenv/bin:$PATH"
-eval "$(~/.goenv/bin/goenv init - zsh)"
+
+rbenv() {
+  unfunction "$0"
+  source <(rbenv init - zsh)
+  $0 "$@"
+}
+nodenv() {
+  unfunction "$0"
+  source <(nodenv init - zsh)
+  $0 "$@"
+}
+goenv() {
+  unfunction "$0"
+  source <(goenv init - zsh)
+  $0 "$@"
+}
+
 
 # aliases
 alias ls='ls --color=auto --classify'
