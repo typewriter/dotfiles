@@ -95,3 +95,5 @@ eval "$(~/.goenv/bin/goenv init - zsh)"
 # aliases
 alias ls='ls --color=auto --classify'
 alias vi='nvim'
+alias vim='nvim'
+export GIT_EDITOR=vi
