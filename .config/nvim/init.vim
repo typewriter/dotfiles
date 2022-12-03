@@ -12,7 +12,6 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
 Jetpack 'simeji/winresizer'
 Jetpack 'junegunn/fzf', { 'do': {-> fzf#install()} }
 Jetpack 'junegunn/fzf.vim'
-Jetpack 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Jetpack 'nathanaelkane/vim-indent-guides'
 Jetpack 'airblade/vim-gitgutter'
 Jetpack 'tpope/vim-endwise'
@@ -21,17 +20,15 @@ Jetpack 'neoclide/coc.nvim', { 'branch': 'release','do': 'yarn install --frozen-
 Jetpack 'ryanoasis/vim-devicons'
 Jetpack 'vim-airline/vim-airline-themes'
 Jetpack 'vim-airline/vim-airline'
-" Jetpack 'preservim/nerdtree'
+Jetpack 'lambdalisue/fern.vim'
 call jetpack#end()
 
 " Config plugins
 let g:winresizer_vert_resize = 1
 let g:winresizer_horiz_resize = 1
 
-nmap <Leader>f [fzf-p]
-xmap <Leader>f [fzf-p]
-nnoremap <silent> [fzf-p]p     :<C-u>FzfPreviewFromResourcesRpc project_mru git<CR>
-nnoremap <silent> [fzf-p]q     :<C-u>FzfPreviewQuickFixRpc<CR>
+nnoremap <C-f> :GFiles<CR>
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
 
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_guide_size = 1
@@ -56,10 +53,7 @@ let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#wordcount#enabled = 0
 let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
 
-" nnoremap <C-t> :NERDTreeToggle<CR>
-" autocmd BufRead *.rb,*.go NERDTree
-" autocmd VimEnter * wincmd p
-" autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+nnoremap <C-t> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 
 " Config
 set number
