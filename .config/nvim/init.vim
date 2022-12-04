@@ -44,6 +44,7 @@ nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
+nmap <silent> qf <Plug>(coc-fix-current)
 autocmd CursorHold * silent! call CocAction('doHover')
 inoremap <silent><expr> <c-space> coc#refresh()
 
