@@ -54,33 +54,13 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zdharma-continuum/history-search-multi-word
 zinit light agkozak/zsh-z
+zinit light romkatv/zsh-defer
 
 # plugin config
 source "${ZDOTDIR}/.p10k.zsh"
 
 # plugin keybinds
 bindkey "^R" history-search-multi-word
-
-# .*env
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.nodenv/bin:$PATH"
-export PATH="$HOME/.goenv/bin:$PATH"
-
-rbenv() {
-  unfunction "$0"
-  source <(rbenv init - zsh)
-  $0 "$@"
-}
-nodenv() {
-  unfunction "$0"
-  source <(nodenv init - zsh)
-  $0 "$@"
-}
-goenv() {
-  unfunction "$0"
-  source <(goenv init - zsh)
-  $0 "$@"
-}
 
 # direnv
 _direnv_hook() {
@@ -96,6 +76,10 @@ typeset -ag chpwd_functions;
 if [[ -z ${chpwd_functions[(r)_direnv_hook]} ]]; then
   chpwd_functions=( _direnv_hook ${chpwd_functions[@]} )
 fi
+
+# lazy load
+ZSHRC_DIR=${${(%):-%N}:A:h}
+zsh-defer source $ZSHRC_DIR/.zshrc.lazy
 
 # aliases
 alias ls='ls --color=auto --classify'

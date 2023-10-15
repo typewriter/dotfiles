@@ -1,0 +1,10 @@
+# .*env
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - --no-rehash zsh)"
+sleep 0.5
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(~/.nodenv/bin/nodenv init - --no-rehash zsh)"
+sleep 0.5
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(~/.goenv/bin/goenv init - --no-rehash zsh)"
+
